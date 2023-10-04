@@ -1,0 +1,62 @@
+{% extends 'layouts/app.html.twig' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-5">Trip history</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" class="form-control">
+            </div>
+        </div>
+        <input type="text" id="searchInput" class="form-control mt-3" placeholder="Search user">
+        <table class="table table-bordered mt-3">
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>2023-10-10</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery (required for search functionality) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#searchInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("table tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+
+            $("#startDate, #endDate").on("change", function () {
+                var startDate = $("#startDate").val();
+                var endDate = $("#endDate").val();
+
+                $("table tbody tr").each(function () {
+                    var date = $(this).find("td:nth-child(2)").text();
+                    if (date >= startDate && date <= endDate) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
