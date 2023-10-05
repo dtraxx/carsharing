@@ -19,18 +19,22 @@
             <tr>
                 <th>User</th>
                 <th>Date</th>
+                <th>Distance</th>
+                <th>Km beginning</th>
+                <th>Km start</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>John Doe</td>
-                <td>2023-10-10</td>
-            </tr>
+            {% for trip in data %}
+                <tr>
+                    <td>{{ 'username' }}</td>
+                    <td>{{ trip.date }}</td>
+                    <td>{{ 'distance' }}</td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
-
-    <!-- Include Bootstrap JS and jQuery (required for search functionality) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

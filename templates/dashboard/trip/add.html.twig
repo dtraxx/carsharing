@@ -1,0 +1,15 @@
+{% extends 'layouts/app.html.twig' %}
+
+{% block content %}
+<form >
+    <div class="mb-3">
+        <label for="km" class="form-label">mileage</label>
+        <input type="number" class="form-control" name="km" id="km" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="date" class="form-label">Password</label>
+        <input type="date" class="form-control" id="date" name="date">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

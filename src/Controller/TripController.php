@@ -15,12 +15,13 @@ class TripController extends AbstractController
      * @param TripRepository $tripRepository
      * @return Response
      */
-    #[Route('/trip', name: 'app_trip')]
+    #[Route('/dashboard/trip', name: 'app_trip')]
     public function index(TripRepository $tripRepository): Response
     {
         $trips = $tripRepository->findAll();
         return $this->render('dashboard/trip/index.html.twig', [
             'controller_name' => 'TripController',
+            'data' => $trips
         ]);
     }
 
@@ -29,7 +30,8 @@ class TripController extends AbstractController
      * @return Response
      * @throws \Exception
      */
-    public function addTrip(Request $request): Response
+    #[Route('/storetrip', name: 'store_trip')]
+    public function storeTrip(Request $request): Response
     {
         $currentUser = $this->getUser();
         $trip = new Trip();
@@ -41,5 +43,14 @@ class TripController extends AbstractController
         $entityManager->flush();
 
         return new Response('Saved new trip with!');
+    }
+
+    /**
+     * @return Response
+     */
+    #[Route('/dashboard/addtrip', name: 'add_trip')]
+    public function add()
+    {
+        return $this->render('dashboard/trip/add.html.twig');
     }
 }
