@@ -28,11 +28,18 @@ class Trip
         return $this->id;
     }
 
+    /**
+     * @return int|null
+     */
     public function getUserId(): ?int
     {
         return $this->user_id;
     }
 
+    /**
+     * @param int $user_id
+     * @return $this
+     */
     public function setUserId(int $user_id): static
     {
         $this->user_id = $user_id;
@@ -40,11 +47,18 @@ class Trip
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
+    /**
+     * @param \DateTimeInterface $date
+     * @return $this
+     */
     public function setDate(\DateTimeInterface $date): static
     {
         $this->date = $date;
@@ -52,15 +66,31 @@ class Trip
         return $this;
     }
 
+    /**
+     * @return int|null
+     */
     public function getKm(): ?int
     {
         return $this->km;
     }
 
+    /**
+     * @param int $km
+     * @return $this
+     */
     public function setKm(int $km): static
     {
         $this->km = $km;
 
         return $this;
+    }
+
+    /**
+     * @param int $userid
+     * @return void
+     */
+    public function setUser(int $userid): void
+    {
+        $this->id = $userid;
     }
 }
