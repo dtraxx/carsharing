@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use http\Client\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,6 +10,10 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController
 {
+    /**
+     * @param AuthenticationUtils $authenticationUtils
+     * @return Response
+     */
     #[Route('/login', name: 'app_login')]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
@@ -23,4 +28,13 @@ class LoginController extends AbstractController
                'error'         => $error,
           ]);
       }
+
+    public function login(  Request $request)
+    {
+        $form = handleRequest($request);
+
+        if (true === $form->isSubmitted() && true === $form->isValid()) {
+            // stuff
+        }
+    }
 }

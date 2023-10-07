@@ -17,6 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class TripRepository extends ServiceEntityRepository
 {
+    /**
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Trip::class);

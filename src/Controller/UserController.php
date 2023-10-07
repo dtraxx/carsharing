@@ -21,7 +21,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    public function registration(UserPasswordHasherInterface $passwordHasher, Request $request)
+    public function registration(UserPasswordHasherInterface $passwordHasher, Request $request): void
     {
         $user = new User();
         $password = $request->request->get('password');

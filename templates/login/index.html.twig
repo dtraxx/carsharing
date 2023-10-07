@@ -4,7 +4,7 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action="{{ path('app_login') }}" method="post">
+    <form action="{{ path('app_login') }}" method="POST">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
     <div class="mb-3">
         <label for="username" class="form-label">Email address</label>
@@ -15,8 +15,7 @@
         <input type="password" class="form-control" id="password" name="password">
     </div>
     <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <a href="{{ path('app_register') }}">Register</a>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

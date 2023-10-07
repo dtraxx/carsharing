@@ -23,6 +23,9 @@ class Trip
     #[ORM\Column]
     private ?int $km = null;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;

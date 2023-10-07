@@ -1,4 +1,5 @@
 <form>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
     <div class="mb-3">
         <label for="first" class="form-label">Firstname</label>
         <input type="text" class="form-control" id="first" name="first">
